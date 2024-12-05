@@ -15,8 +15,16 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const bcrypt_1 = __importDefault(require("bcrypt"));
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
+const cors_1 = __importDefault(require("cors"));
 const User_1 = __importDefault(require("../models/User")); // Assuming a User model is defined
 const router = express_1.default.Router();
+// CORS configuration
+const corsOptions = {
+    origin: 'http://localhost:5173', // Allow only frontend domain
+    methods: ['GET', 'POST'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+};
+router.use((0, cors_1.default)(corsOptions));
 // Signup route
 router.post('/signup', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { email, password } = req.body;

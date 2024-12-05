@@ -1,9 +1,19 @@
 import express, { Request, Response } from 'express';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
+import cors from 'cors';
 import User from '../models/User'; // Assuming a User model is defined
 
 const router = express.Router();
+
+// CORS configuration
+const corsOptions = {
+    origin: 'http://localhost:5173', // Allow only frontend domain
+    methods: ['GET', 'POST'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+};
+
+router.use(cors(corsOptions));
 
 // Signup route
 router.post('/signup', async (req: any, res: any) => {

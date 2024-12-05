@@ -7,7 +7,7 @@ const LandingPage: React.FC = () => {
     const navigate = useNavigate();
 
     return (
-        <div className="min-h-screen bg-gradient-to-b from-green-300 via-yellow-200 to-green-400">
+        <div className="min-h-screen bg-gradient-to-b ">
             <Header />
             {/* Hero Section */}
             <div className="flex flex-col items-center justify-center min-h-[calc(100vh-72px)]">
